@@ -8,6 +8,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.employees.api.ApiFactory;
 import com.example.employees.api.ApiService;
@@ -28,16 +29,25 @@ public class EmployeeViewModel extends AndroidViewModel {
     private static AppDatabase appDatabase;
     private LiveData<List<Employee>> employees;
     CompositeDisposable compositeDisposable;
+    private MutableLiveData<Throwable> errors;
 
     public EmployeeViewModel(@NonNull Application application) {
         super(application);
         appDatabase = AppDatabase.getInstance(application);
         employees = appDatabase.employeeDao().getAllEmployees();
-
+        errors = new MutableLiveData<>();
     }
 
     public LiveData<List<Employee>> getEmployees() {
         return employees;
+    }
+
+    public LiveData<Throwable> getErrors() {
+        return errors;
+    }
+
+    public void clearErrors() {
+        errors.setValue(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -85,6 +95,7 @@ public class EmployeeViewModel extends AndroidViewModel {
                     @Override
                     public void accept(Throwable throwable) {
                         Log.d("dbg", throwable.toString());
+                        errors.setValue(throwable);
                     }
                 });
             compositeDisposable.add(disposable);

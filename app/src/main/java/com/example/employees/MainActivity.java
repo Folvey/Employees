@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.example.employees.adapters.EmployeeAdapter;
 import com.example.employees.pojo.Employee;
@@ -34,6 +36,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(List<Employee> employees) {
                 adapter.setEmployees(employees);
+            }
+        });
+        viewModel.getErrors().observe(this, new Observer<Throwable>() {
+            @Override
+            public void onChanged(Throwable throwable) {
+                if (throwable != null) {
+                    Toast.makeText(MainActivity.this, "Error!\n" + throwable, Toast.LENGTH_LONG).show();
+                    Log.d(TAG, throwable.toString());
+                    viewModel.clearErrors();
+                }
             }
         });
         viewModel.loadData();
