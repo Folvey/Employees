@@ -28,6 +28,14 @@ public class Employee {
 //    @Expose
 //    private List<Specialty> specialty = null;
 
+
+    public Employee(String name, String lName, String birthday, String avatarUrl) {
+        this.name = name;
+        this.lName = lName;
+        this.birthday = birthday;
+        this.avatarUrl = avatarUrl;
+    }
+
     public int getId() {
         return id;
     }

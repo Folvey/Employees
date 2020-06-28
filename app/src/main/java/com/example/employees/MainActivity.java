@@ -6,8 +6,10 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.employees.adapters.EmployeeAdapter;
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onChanged(Throwable throwable) {
                 if (throwable != null) {
-                    Toast.makeText(MainActivity.this, "Error!\n" + throwable, Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Error\n" + throwable, Toast.LENGTH_LONG).show();
                     Log.d(TAG, throwable.toString());
                     viewModel.clearErrors();
                 }
@@ -65,5 +67,10 @@ public class MainActivity extends AppCompatActivity {
         if (disposable != null)
             disposable.dispose();
         super.onDestroy();
+    }
+
+    public void onClickAddEmployee(View view) {
+        Intent intent = new Intent(this, AddEmployeeActivity.class);
+        startActivity(intent);
     }
 }

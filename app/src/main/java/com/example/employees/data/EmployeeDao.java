@@ -12,12 +12,18 @@ import java.util.List;
 
 @Dao
 public interface EmployeeDao {
+    static final String DB_NAME = "employees.db";
+
     @Query("SELECT * FROM employees")
     LiveData<List<Employee>> getAllEmployees();
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertEmployees(List<Employee> employees);
 
+    @Insert
+    void insertEmployee(Employee employee);
+
     @Query("DELETE FROM employees")
     void deleteAllEmployees();
+
 }

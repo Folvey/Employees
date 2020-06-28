@@ -32,6 +32,7 @@
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             app:layout_constraintStart_toEndOf="@+id/textViewLabelName"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,6 +40,7 @@
             android:id="@+id/textViewLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
             app:layout_constraintStart_toEndOf="@+id/textViewLabelLastName"
             app:layout_constraintTop_toBottomOf="@+id/textViewName" />
     </androidx.constraintlayout.widget.ConstraintLayout>

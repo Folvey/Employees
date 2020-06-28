@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">Employees</string>
-    <string name="label_name">Имя: </string>
-    <string name="label_last_name">Фамилия: </string>
+    <string name="label_name">Имя:</string>
+    <string name="label_last_name">Фамилия:</string>
+    <string name="name">Имя</string>
+    <string name="last_name">Фамилия</string>
+    <string name="insert_name">Введите имя</string>
+    <string name="insert_employee">Добавить сотрудника</string>
 </resources>
