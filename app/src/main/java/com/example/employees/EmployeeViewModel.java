@@ -88,6 +88,7 @@ public class EmployeeViewModel extends AndroidViewModel {
                 .subscribe(new Consumer<EmployeeResponse>() {
                     @Override
                     public void accept(EmployeeResponse employeeResponse) throws Exception {
+                        Log.d("dbg", "successful load");
                         deleteAllEmployees();
                         insertEmployees(employeeResponse.getResponse());
                     }

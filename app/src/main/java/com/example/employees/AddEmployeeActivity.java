@@ -35,11 +35,11 @@ public class AddEmployeeActivity extends AppCompatActivity {
         editTextLastName = findViewById(R.id.editTextLastName);
 
     }
+
     public void onClickAddEmployee(View view) {
         String name = editTextName.getText().toString();
         String lastName = editTextLastName.getText().toString();
         Employee employee = new Employee(name, lastName, "1", "1");
-
         appDatabase = AppDatabase.getInstance(this);
         Log.d("dbg", "before task");
         new InsertEmployeeTask().execute(employee);

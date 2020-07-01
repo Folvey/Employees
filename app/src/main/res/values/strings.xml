@@ -6,4 +6,5 @@
     <string name="last_name">Фамилия</string>
     <string name="insert_name">Введите имя</string>
     <string name="insert_employee">Добавить сотрудника</string>
+    <string name="user_avatar">User avatar</string>
 </resources>

@@ -5,44 +5,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="4dp"
+    app:cardCornerRadius="24dp"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="8dp">
-
-        <TextView
-            android:id="@+id/textViewLabelName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text= "@string/label_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/textViewLabelLastName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/label_last_name"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewLabelName" />
+        android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/textViewName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            app:layout_constraintStart_toEndOf="@+id/textViewLabelName"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:paddingStart="16dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView
             android:id="@+id/textViewLastName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            app:layout_constraintStart_toEndOf="@+id/textViewLabelLastName"
-            app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingBottom="16dp"
+            android:paddingTop="16dp"
+            android:textSize="24sp"
+            app:layout_constraintStart_toEndOf="@+id/textViewName"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guidelineAvatarStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.80"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/imageViewSmallAvatar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:src="@drawable/avatar"
+            app:civ_border_width="0dp"
+            app:civ_border_color="@android:color/white"
+            app:layout_constraintStart_toEndOf="@id/guidelineAvatarStart"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
